@@ -15,6 +15,10 @@
   "license": "ISC",
   "type": "commonjs",
   "sideEffects": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/sirajsalaya/multi-parser"
+  },
   "engines": {
     "node": ">=18.18.0"
   },
