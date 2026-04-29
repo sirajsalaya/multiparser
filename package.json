@@ -1,5 +1,5 @@
 {
-  "name": "multiparser",
+  "name": "multi-parser",
   "version": "1.0.0",
   "description": "Express-compatible multipart/form-data middleware that writes files into req.body key paths.",
   "keywords": [

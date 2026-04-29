@@ -1,4 +1,4 @@
-# multiparser
+# multi-parser
 
 Express-compatible multipart middleware that parses `multipart/form-data` and stores uploaded files directly in `req.body` using key paths.
 
@@ -12,7 +12,7 @@ Express-compatible multipart middleware that parses `multipart/form-data` and st
 ## Install
 
 ```bash
-npm install multiparser
+npm install multi-parser
 ```
 
 Peer dependency:
@@ -23,7 +23,7 @@ Peer dependency:
 
 ```ts
 import express from 'express';
-import multipartBody from 'multiparser';
+import multipartBody from 'multi-parser';
 
 const app = express();
 
@@ -43,7 +43,7 @@ app.post('/upload', multipartBody(), (req, res) => {
 
 ```ts
 import express from 'express';
-import multipartBody, { memoryStorage, type MultipartBodyOptions } from 'multiparser';
+import multipartBody, { memoryStorage, type MultipartBodyOptions } from 'multi-parser';
 
 const app = express();
 
@@ -71,12 +71,12 @@ app.post('/upload', multipartBody(uploadOptions), (req, res) => {
 });
 ```
 
-If your TypeScript setup auto-imports namespace style (`import * as x from 'multiparser'`), change it to one of these callable imports:
+If your TypeScript setup auto-imports namespace style (`import * as x from 'multi-parser'`), change it to one of these callable imports:
 
 ```ts
-import multipartBody from 'multiparser';
+import multipartBody from 'multi-parser';
 // or
-import { multipartBody } from 'multiparser';
+import { multipartBody } from 'multi-parser';
 ```
 
 ## API
