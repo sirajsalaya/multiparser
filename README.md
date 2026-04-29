@@ -1,4 +1,4 @@
-# multi-parser
+# multipartbody
 
 Express-compatible multipart middleware that parses `multipart/form-data` and stores uploaded files directly in `req.body` using key paths.
 
@@ -12,7 +12,7 @@ Express-compatible multipart middleware that parses `multipart/form-data` and st
 ## Install
 
 ```bash
-npm install multi-parser
+npm install multipartbody
 ```
 
 Peer dependency:
@@ -23,7 +23,7 @@ Peer dependency:
 
 ```ts
 import express from 'express';
-import multipartBody from 'multi-parser';
+import multipartBody from 'multipartbody';
 
 const app = express();
 
@@ -43,7 +43,7 @@ app.post('/upload', multipartBody(), (req, res) => {
 
 ```ts
 import express from 'express';
-import multipartBody, { memoryStorage, type MultipartBodyOptions } from 'multi-parser';
+import multipartBody, { memoryStorage, type MultipartBodyOptions } from 'multipartbody';
 
 const app = express();
 
@@ -51,6 +51,7 @@ const uploadOptions: MultipartBodyOptions = {
   storage: memoryStorage(),
   preservePath: false,
   defParamCharset: 'latin1',
+  allowedMimeTypes: ['image/jpeg', 'image/png', 'application/pdf'],
   limits: {
     fieldNameSize: 100,
     fieldSize: 1024 * 1024,
@@ -60,10 +61,6 @@ const uploadOptions: MultipartBodyOptions = {
     parts: 120,
     headerPairs: 2000,
   },
-  fileFilter: (_req, file, cb) => {
-    const allowedMimeTypes = new Set(['image/jpeg', 'image/png', 'application/pdf']);
-    cb(null, allowedMimeTypes.has(file.mimetype));
-  },
 };
 
 app.post('/upload', multipartBody(uploadOptions), (req, res) => {
@@ -71,12 +68,12 @@ app.post('/upload', multipartBody(uploadOptions), (req, res) => {
 });
 ```
 
-If your TypeScript setup auto-imports namespace style (`import * as x from 'multi-parser'`), change it to one of these callable imports:
+If your TypeScript setup auto-imports namespace style (`import * as x from 'multipartbody'`), change it to one of these callable imports:
 
 ```ts
-import multipartBody from 'multi-parser';
+import multipartBody from 'multipartbody';
 // or
-import { multipartBody } from 'multi-parser';
+import { multipartBody } from 'multipartbody';
 ```
 
 ## API
@@ -89,6 +86,7 @@ Options:
 
 - `storage?: StorageEngine` (default: `memoryStorage()`)
 - `limits?: MultipartBodyLimits`
+- `allowedMimeTypes?: string[]`
 - `fileFilter?: (req, file, cb) => void`
 - `preservePath?: boolean`
 - `defParamCharset?: string` (default: `latin1`)
