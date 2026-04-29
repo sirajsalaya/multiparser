@@ -1,13 +1,19 @@
 {
   "name": "multipartbody",
   "version": "1.0.0",
-  "description": "Express-compatible multipart/form-data middleware that writes files into req.body key paths.",
+  "description": "Multer-like Express multipart parser that stores files in req.body for nested form-data payloads.",
   "keywords": [
     "multipart",
+    "multipart parser",
     "form-data",
     "express",
+    "express upload",
     "middleware",
     "upload",
+    "multer alternative",
+    "req.body",
+    "nested uploads",
+    "body parser",
     "busboy",
     "typescript"
   ],
@@ -18,6 +24,10 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/sirajsalaya/multi-parser"
+  },
+  "homepage": "https://github.com/sirajsalaya/multi-parser#readme",
+  "bugs": {
+    "url": "https://github.com/sirajsalaya/multi-parser/issues"
   },
   "engines": {
     "node": ">=18.18.0"
@@ -36,7 +46,8 @@
   "files": [
     "dist",
     "README.md",
-    "LICENSE"
+    "LICENSE",
+    "examples"
   ],
   "publishConfig": {
     "access": "public",
